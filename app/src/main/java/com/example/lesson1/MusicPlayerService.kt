@@ -78,19 +78,19 @@ class MusicPlayerService : Service() {
         val stopIntent = Intent(this, MusicPlayerService::class.java)
         stopIntent.action = Constants.ACTION.STOPFOREGROUND_ACTION
         val pendingStopIntent = PendingIntent.getService(this, 0, stopIntent,
-            PendingIntent.FLAG_IMMUTABLE)
+            PendingIntent.FLAG_MUTABLE)
         val playIntent = Intent(this, MusicPlayerService::class.java)
         playIntent.action = Constants.ACTION.STARTFOREGROUND_ACTION
         val pendingStartIntent = PendingIntent.getService(this, 0, playIntent,
-            PendingIntent.FLAG_IMMUTABLE)
+            PendingIntent.FLAG_MUTABLE)
         val nextIntent = Intent(this, MusicPlayerService::class.java)
         nextIntent.action = Constants.ACTION.NEXTSONG_ACTION
         val pendingNextIntent = PendingIntent.getService(this, 0, nextIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT)
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
         val prevIntent = Intent(this, MusicPlayerService::class.java)
         prevIntent.action = Constants.ACTION.PREVSONG_ACTION
         val pendingPrevIntent = PendingIntent.getService(this, 0, prevIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT)
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
 
         val builder = NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID)
             .setContentTitle("Music Player")

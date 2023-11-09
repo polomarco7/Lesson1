@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             val channel = NotificationChannel(
                 Constants.NOTIFICATION_CHANNEL_ID,
                 "Music Player1",
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_DEFAULT
             )
             val manager = getSystemService(
                 NotificationManager::class.java
